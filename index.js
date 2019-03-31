@@ -75,5 +75,6 @@ function checkNews() {
 
 
 client.connect(err => {
+  console.log('Service Started')
   setInterval(checkNews, 30 * 60 * 1000);
 })
