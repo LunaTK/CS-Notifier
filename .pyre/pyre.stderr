@@ -1,0 +1,18 @@
+2019-03-27 12:53:41,843 INFO No binary specified, looking for `pyre.bin` in PATH
+2019-03-27 12:53:41,844 INFO Found: `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/bin/pyre.bin`
+2019-03-27 12:53:41,844 INFO No typeshed specified, looking for it
+2019-03-27 12:53:41,844 DEBUG Trying with: `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyre_check/pyre_check/typeshed/`
+2019-03-27 12:53:41,845 DEBUG Trying with: `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/pyre_check/typeshed/`
+2019-03-27 12:53:41,845 DEBUG Trying with: `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/python3.7/pyre_check/typeshed/`
+2019-03-27 12:53:41,845 DEBUG Trying with: `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/pyre_check/typeshed/`
+2019-03-27 12:53:41,845 INFO Found: `/usr/local/Cellar/python/3.7.0/Frameworks/Python.framework/Versions/3.7/lib/pyre_check/typeshed/`
+2019-03-27 12:53:41,942 WARNING Exception encountered trying to find source files in the analysis directory: `Command '['find', '/Users/LunaTK/CSNotice/.pyre/shared_analysis_directory', '(', '-name', '*.py', '-or', '-name', '*.pyi', ')', '(', '-type', 'f', '-or', '-type', 'l', ')', '-print']' returned non-zero exit status 1.`
+
+2019-03-27 12:53:41,943 WARNING Starting with an empty set of tracked files.
+
+2019-03-27 12:53:41,944 WARNING Starting server at `/Users/LunaTK/CSNotice/.pyre/shared_analysis_directory`.
+
+2019-03-27 12:53:41,945 INFO Constructing shared directory `/Users/LunaTK/CSNotice/.pyre/shared_analysis_directory`
+2019-03-27 12:53:41,946 ERROR No targets or source directories to analyze.
+
+2019-03-27 12:53:41,951 INFO Not starting monitor due to No module named 'pywatchman'

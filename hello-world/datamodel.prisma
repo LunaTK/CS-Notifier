@@ -1,0 +1,4 @@
+type Doc {
+  _id: ID! @id
+  title: String!
+}

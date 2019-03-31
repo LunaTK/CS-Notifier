@@ -1,0 +1,21 @@
+{
+  "name": "CSNotice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "mongodb": "^3.2.2",
+    "nodemailer": "^6.0.0",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "prisma": "^1.29.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3"
+  },
+  "scripts": {
+    "encrypt": "openssl aes-256-cbc -salt -a -int .env -out .env.enc",
+    "decrypt": "openssl aes-256-cbc -a -d -in .env.enc -out .env"
+  }
+}
