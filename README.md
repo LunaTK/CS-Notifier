@@ -6,5 +6,5 @@
 
 <p align="center">
 <img src="/screenshots/mail.png" width="280"/>
-<img src="/screenshots/push_notification.png" width="500"/>
+<img src="/screenshots/push_notification.png" width="280"/>
 </p>
