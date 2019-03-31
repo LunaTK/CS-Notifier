@@ -41,9 +41,8 @@ function fetchNewNotices(params) {
     const collection = client.db('skku').collection(type);
     return collection.insertMany(data).then(result => {
       if (result.result.ok == 1 && result.result.n > 0) {
-        mail.sendMail(`[SKKU] ${data.length} 개의 새로운 ${typeKor}`, `<h1>${typeKor}</h1>` + data.map(notice => {
-          return `[${notice._id}] (${notice.category}) ${notice.title}\t\t${notice.time}`
-        }).join('<br/><br/>>'));
+        const content = mail.generateContent(type, typeKor, data);
+        mail.sendMail(`[SW-SKKU] ${data.length} 개의 새로운 ${typeKor}`, content);
       }
     });
   }
@@ -69,12 +68,13 @@ const options_recruit = {
 function checkNews() {
   const requestAsync1 = util.promisify(request);
   const requestAsync2 = util.promisify(request);
-  Promise.all(['notice', '공지사항', getLastId('notice'), requestAsync1(options_notice)]).then(fetchNewNotices);
-  Promise.all(['recruit', '취업 정보', getLastId('recruit'), requestAsync2(options_recruit)]).then(fetchNewNotices);
+  Promise.all(['notice', '새 공지사항', getLastId('notice'), requestAsync1(options_notice)]).then(fetchNewNotices);
+  Promise.all(['recruit', '새 취업/인턴십', getLastId('recruit'), requestAsync2(options_recruit)]).then(fetchNewNotices);
 }
 
 
 client.connect(err => {
   console.log('Service Started')
   setInterval(checkNews, 30 * 60 * 1000);
+  // checkNews()
 })

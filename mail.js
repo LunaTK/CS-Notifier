@@ -1,6 +1,8 @@
 require('dotenv').config()
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
+const pug = require('pug');
+const compiledFunction = pug.compileFile('mail_template.pug');
 
 var transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
@@ -11,6 +13,13 @@ var transporter = nodemailer.createTransport(smtpTransport({
     }
 }));
 
+exports.generateContent = function (type, title, news) {
+    return compiledFunction({
+        type,
+        title,
+        news
+    })
+}
 
 exports.sendMail = function sendMail(subject, content) {
     const mailingList = require('./mailing_list.json');
