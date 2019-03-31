@@ -1,0 +1,8 @@
+h1= title
+
+each val, index in news
+  h3(style={display:'inline'})= `[${val._id}] `
+  a(href=`https://cs.skku.edu/news/${type}/view/${val._id}`)
+    h2(style={display:'inline'})= `${val.title}`
+  br
+  br
