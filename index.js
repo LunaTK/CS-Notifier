@@ -43,7 +43,7 @@ function fetchNewNotices(params) {
       if (result.result.ok == 1 && result.result.n > 0) {
         mail.sendMail(`[SKKU] ${data.length} 개의 새로운 ${typeKor}`, `<h1>${typeKor}</h1>` + data.map(notice => {
           return `[${notice._id}] (${notice.category}) ${notice.title}\t\t${notice.time}`
-        }).join('<br/><br/>>'));
+        }).join('<br/><br/>'));
       }
     });
   }
