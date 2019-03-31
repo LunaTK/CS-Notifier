@@ -4,7 +4,8 @@
 
 # Screenshots
 
+<img src="./screenshots/skku_notice.png">
 <p align="center">
-<img src="/screenshots/mail.png" width="280"/>
-<img src="/screenshots/push_notification.png" width="280"/>
+<img src="./screenshots/push_notification.png" width="280"/>
+<img src="./screenshots/mail.png" width="280"/>
 </p>
