@@ -23,6 +23,9 @@ async function getLastId() {
         .db('skku')
         .collection('recruit')
         .find()
+        .sort({
+          _id: -1
+        })
         .limit(1);
       const toArray = util.promisify(cursor.toArray.bind(cursor));
       return toArray();

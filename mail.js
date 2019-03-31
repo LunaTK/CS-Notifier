@@ -12,11 +12,12 @@ var transporter = nodemailer.createTransport(smtpTransport({
 }));
 
 
-export default function sendMail(content) {
+exports.sendMail = function sendMail(subject, content) {
+    const mailingList = require('./mailing_list.json');
     var mailOptions = {
         from: `공지알리미 💡<${process.env.GMAIL_ID}>`,
-        to: 'ahn_v3@naver.com',
-        subject: 'Sending Email using Node.js',
+        to: mailingList.join(', '),
+        subject: subject,
         html: content
     };
     transporter.sendMail(mailOptions, function (error, info) {
