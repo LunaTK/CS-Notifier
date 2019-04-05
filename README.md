@@ -9,3 +9,8 @@
 <img src="./screenshots/push_notification.png" width="280"/>
 <img src="./screenshots/mail.png" width="280"/>
 </p>
+
+# Requirements
+
+- MongoDB Atlas
+- G-Mail Account
