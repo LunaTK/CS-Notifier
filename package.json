@@ -15,7 +15,7 @@
     "eslint": "^5.15.3"
   },
   "scripts": {
-    "encrypt": "openssl aes-256-cbc -salt -a -int .env -out .env.enc",
+    "encrypt": "openssl aes-256-cbc -a -salt -in .env -out .env.enc",
     "decrypt": "openssl aes-256-cbc -a -d -in .env.enc -out .env"
   }
 }
