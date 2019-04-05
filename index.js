@@ -2,6 +2,7 @@ const MongoClient = require('mongodb').MongoClient;
 const request = require('request');
 const util = require('util');
 const mail = require('./mail');
+const endpoint = 'https://cs.skku.edu/rest/board/list/';
 require('dotenv').config();
 const client = new MongoClient(process.env.MONGODB_URI, {
   useNewUrlParser: true
@@ -48,28 +49,25 @@ function fetchNewNotices(params) {
   }
 }
 
-const options_notice = {
-  url: process.env.REST_NOTICE,
-  headers: {
-    'User-Agent': 'node.js',
-    Accept: '*/*',
-    Host: 'cs.skku.edu'
-  }
-};
-const options_recruit = {
-  url: process.env.REST_RECRUIT,
-  headers: {
-    'User-Agent': 'node.js',
-    Accept: '*/*',
-    Host: 'cs.skku.edu'
-  }
-};
+function requestAsyncWithType(type) {
+  const options = {
+    url: endpoint + type,
+    headers: {
+      'User-Agent': 'node.js',
+      Accept: '*/*',
+      Host: 'cs.skku.edu'
+    }
+  };
+  return new Promise((resolve, reject) => {
+    request.get(options, (err, res, body) => {
+      resolve(res);
+    });
+  })
+}
 
 function checkNews() {
-  const requestAsync1 = util.promisify(request);
-  const requestAsync2 = util.promisify(request);
-  Promise.all(['notice', '새 공지사항', getLastId('notice'), requestAsync1(options_notice)]).then(fetchNewNotices);
-  Promise.all(['recruit', '새 취업/인턴십', getLastId('recruit'), requestAsync2(options_recruit)]).then(fetchNewNotices);
+  Promise.all(['notice', '새 공지사항', getLastId('notice'), requestAsyncWithType('notice')]).then(fetchNewNotices);
+  Promise.all(['recruit', '새 취업/인턴십', getLastId('recruit'), requestAsyncWithType('recruit')]).then(fetchNewNotices);
 }
 
 
