@@ -15,6 +15,7 @@
     "eslint": "^5.15.3"
   },
   "scripts": {
+    "start": "node index.js",
     "encrypt": "openssl aes-256-cbc -a -salt -in .env -out .env.enc",
     "decrypt": "openssl aes-256-cbc -a -d -in .env.enc -out .env"
   }
