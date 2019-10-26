@@ -1,0 +1,7 @@
+{
+    "use-modules": ["cs"],
+    "module-name": {
+        "cs": "소프트웨어학과 공지사항"
+    },
+    "mailing-list": ["xorms987@gmail.com"]
+}
